@@ -1,0 +1,10 @@
+{
+    "https://nfdi4culture.de/ontology#":"n4co:",
+    "https://nfdi4culture.de/id/":"n4c:",
+    "https://nfdi.fiz-karlsruhe.de/ontology/": "nfdico:",
+    "https://iconclass.org/ontology/": "iconclass:",
+    "http://iconclass.org/": "ic:",
+    "http://purl.org/cerif/frapo/":"frapo:",
+    "https://nfdi4culture.de/id/ark:/60538/":"n4cark:",
+    "http://vocab.getty.edu/aat/":"aat:"
+}

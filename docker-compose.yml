@@ -1,0 +1,30 @@
+version: "3"
+services:
+  web:
+    image: caddy
+    ports:
+      - "42000:80"
+    volumes:
+      - "./Caddyfile:/etc/caddy/Caddyfile"
+      - "./www:/www/"
+  shmarql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:8000"
+    environment:
+      - PREFIXES_FILEPATH=/www/prefixes.json
+      - DOMAIN=nfdi.fiz-karlsruhe.de
+      - TBOX_PATH=https://raw.githubusercontent.com/ISE-FIZKarlsruhe/nfdicore/main/nfdicore.ttl
+      - SERVICE_DESCRIPTION_TITLE=NFDI4Culture
+      - DEBUG=1
+      - STORE_PATH=/www/oxi_20240108/
+      - SCHEME=https://
+      - SCHPIEL_PATH=/www/
+      - SITE_URI=https://nfdi.fiz-karlsruhe.de/
+      - IDP_ENTITY=https://idp.nfdi4culture.de/simplesaml/saml2/idp/metadata.php
+      - SP_ENTITY=https://nfdi.fiz-karlsruhe.de/api/saml/sp
+      - IDP_URI=https://idp.nfdi4culture.de/simplesaml/saml2/idp/SSOService.php
+    volumes:
+      - "./www:/www/"
